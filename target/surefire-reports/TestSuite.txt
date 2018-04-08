@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 34.058 s <<< FAILURE! - in TestSuite
+testCreateCustomer(com.logiceinvoice.scripts.TestCreateCustomer)  Time elapsed: 10.453 s  <<< FAILURE!
+java.lang.AssertionError: null
+	at com.logiceinvoice.scripts.TestCreateCustomer.testCreateCustomer(TestCreateCustomer.java:48)
+

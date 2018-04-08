@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.logicinvoice.generics.Utility;
 public class DashboardPage extends Utility{
-	@FindBy(xpath="//a[@aria-expanded='false']")
+	@FindBy(xpath="(//a[@data-toggle='dropdown'])[2]")
 	WebElement loggedInUser;
 	
 	@FindBy(xpath="//a[contains(text(),'Logout')]")

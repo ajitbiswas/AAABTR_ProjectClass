@@ -1,9 +1,15 @@
 package com.logicinvoice.generics;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Date;
 import java.util.Properties;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -45,5 +51,16 @@ public static void mouseHover(WebDriver driver, WebElement element){
 public static void selectByVisibleText(WebElement element, String text){
 	Select s = new Select(element);
 	s.selectByVisibleText(text);
+}
+public static void takeScreenshot(WebDriver driver, String testMethodName){
+	try {
+		Date d = new Date();
+		String date = d.toString().replaceAll(":", "_");
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File srcFile = ts.getScreenshotAs(OutputType.FILE);
+		File destFile = new File(SNAPSHOT_PATH+testMethodName+"_"+date+".png");
+		FileUtils.copyFile(srcFile, destFile);
+	} catch (Exception e) {
+	}
 }
 }
